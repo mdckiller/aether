@@ -1,0 +1,345 @@
+/* Dialog Styles - Mantiene lo stile dell'applicazione */
+
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dialog-overlay.show {
+    opacity: 1;
+}
+
+.dialog-overlay.hide {
+    opacity: 0;
+}
+
+.dialog-overlay.modal {
+    pointer-events: auto;
+}
+
+.dialog {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    min-width: 400px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dialog-overlay.show .dialog {
+    transform: scale(1) translateY(0);
+}
+
+.dialog-overlay.hide .dialog {
+    transform: scale(0.9) translateY(20px);
+}
+
+/* Header */
+.dialog-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px 16px 0 0;
+}
+
+.dialog-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+    flex: 1;
+}
+
+.dialog-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #64748b;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.dialog-close:hover {
+    background: rgba(148, 163, 184, 0.2);
+    color: #475569;
+}
+
+/* Body */
+.dialog-body {
+    padding: 24px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.dialog-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.dialog-icon-info {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.dialog-icon-warning {
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.dialog-icon-error {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.dialog-icon-question {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.dialog-message {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #374151;
+    margin-top: 8px;
+}
+
+/* Footer */
+.dialog-footer {
+    padding: 16px 20px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-radius: 0 0 16px 16px;
+}
+
+/* Bottoni - Riutilizza gli stili esistenti dell'app */
+.dialog .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+}
+
+.dialog .btn-primary {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.dialog .btn-primary:hover {
+    background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+    transform: translateY(-1px);
+}
+
+.dialog .btn-secondary {
+    background: rgba(148, 163, 184, 0.1);
+    color: #475569;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.dialog .btn-secondary:hover {
+    background: rgba(148, 163, 184, 0.2);
+    border-color: rgba(148, 163, 184, 0.5);
+    transform: translateY(-1px);
+}
+
+.dialog .btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.dialog .btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .dialog {
+        min-width: 320px;
+        margin: 20px;
+        max-width: calc(100vw - 40px);
+    }
+    
+    .dialog-body {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .dialog-footer {
+        flex-direction: column;
+    }
+    
+    .dialog .btn {
+        width: 100%;
+    }
+}
+
+/* Animazioni aggiuntive */
+@keyframes dialogSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes dialogSlideOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8) translateY(40px);
+    }
+}
+
+/* Varianti per diversi tipi di dialog */
+.dialog-info .dialog-header {
+    border-bottom-color: rgba(59, 130, 246, 0.2);
+}
+
+.dialog-warning .dialog-header {
+    border-bottom-color: rgba(245, 158, 11, 0.2);
+}
+
+.dialog-error .dialog-header {
+    border-bottom-color: rgba(239, 68, 68, 0.2);
+}
+
+.dialog-question .dialog-header {
+    border-bottom-color: rgba(139, 92, 246, 0.2);
+}
+
+/* === DIALOG IMPOSTAZIONI === */
+.settings-form {
+    padding: 20px 0;
+}
+
+.settings-form .form-group {
+    margin-bottom: 20px;
+}
+
+.settings-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Spinner per numero colonne */
+.spinner-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.spinner-btn {
+    background: #f8f9fa;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    transition: background-color 0.2s;
+    min-width: 40px;
+}
+
+.spinner-btn:hover {
+    background: #e9ecef;
+    color: #333;
+}
+
+.spinner-btn:active {
+    background: #dee2e6;
+}
+
+.spinner-container input {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 14px;
+    width: 60px;
+    background: white;
+    outline: none;
+    pointer-events: auto;
+    cursor: text;
+    /* Nasconde i bottoni di default del browser */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
+/* Nasconde le frecce su WebKit browsers (Chrome, Safari, Edge) */
+.spinner-container input::-webkit-outer-spin-button,
+.spinner-container input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.spinner-container:focus-within {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.spinner-container input:focus {
+    background: #f8f9fa;
+}
+
+.spinner-btn:focus {
+    outline: none;
+}
+
+.spinner-container:focus-within .spinner-btn:focus {
+    background: #e9ecef;
+}

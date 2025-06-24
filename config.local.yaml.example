@@ -1,0 +1,29 @@
+# Esempio di configurazione locale
+# Copia questo file come config.local.yaml per personalizzazioni locali
+# Il file config.local.yaml verrà ignorato da git
+
+# Sovrascrive solo le configurazioni che vuoi modificare
+# Le altre verranno prese dal config.yaml principale
+
+# Configurazione Database per sviluppo locale
+database:
+  host: localhost
+  port: 5432
+  name: aether_dev
+  user: your_local_user
+  password: your_local_password
+
+# Configurazione Server per sviluppo
+server:
+  port: 3001
+  environment: development
+
+# Configurazione Sicurezza per sviluppo
+security:
+  session_secret: your-local-development-secret
+  bcrypt_rounds: 10  # Meno rounds per sviluppo più veloce
+
+# Configurazione Logging per sviluppo
+logging:
+  level: debug
+  console: true

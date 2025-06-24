@@ -1,0 +1,52 @@
+{
+  "name": "aether",
+  "version": "1.0.0",
+  "description": "Aether - Applicazione modulare per gestione note con editor WYSIWYG, pannelli resizabili e supporto multi-utente",
+  "main": "backend.js",
+  "scripts": {
+    "start": "node backend.js",
+    "dev": "nodemon backend.js",
+    "setup-db": "psql -U postgres -d aether -f schema.sql",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "notes",
+    "editor",
+    "wysiwyg",
+    "nodejs",
+    "express",
+    "postgresql",
+    "multi-user",
+    "plugin",
+    "modular"
+  ],
+  "author": "Aether Team",
+  "license": "MIT",
+  "dependencies": {
+    "@mozilla/readability": "^0.4.4",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "js-yaml": "^4.1.0",
+    "jsdom": "^22.1.0",
+    "node-fetch": "^2.7.0",
+    "pg": "^8.11.3",
+    "quill": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/aether.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/aether/issues"
+  },
+  "homepage": "https://github.com/your-username/aether#readme"
+}

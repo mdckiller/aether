@@ -1,0 +1,150 @@
+/* Color Picker Dialog Styles */
+.color-picker-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.color-picker-dialog.show {
+    opacity: 1;
+}
+
+.color-picker-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.color-picker-dialog.show .color-picker-content {
+    transform: scale(1);
+}
+
+.color-picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.color-picker-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.color-picker-body {
+    padding: 20px;
+}
+
+.color-section {
+    margin-bottom: 20px;
+}
+
+.color-section:last-child {
+    margin-bottom: 0;
+}
+
+.color-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+}
+
+.color-item {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.color-item:hover {
+    transform: scale(1.1);
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.color-item:active {
+    transform: scale(0.95);
+}
+
+/* Stile speciale per il bianco */
+.color-item[data-color="#FFFFFF"] {
+    border-color: #ccc;
+}
+
+.color-item[data-color="#FFFFFF"]:hover {
+    border-color: #007bff;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .color-picker-content {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .color-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .color-item {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .color-picker-header {
+        padding: 12px 15px;
+    }
+    
+    .color-picker-body {
+        padding: 15px;
+    }
+}
