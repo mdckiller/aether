@@ -1,7 +1,7 @@
 {
   "name": "aether",
   "version": "1.0.0",
-  "description": "Aether - Applicazione modulare per gestione note con editor WYSIWYG, pannelli resizabili e supporto multi-utente",
+  "description": "Aether - Cloud Modular Personal Dashboard",
   "main": "backend.js",
   "scripts": {
     "start": "node backend.js",
@@ -20,7 +20,7 @@
     "plugin",
     "modular"
   ],
-  "author": "Aether Team",
+  "author": "MDC",
   "license": "MIT",
   "dependencies": {
     "@mozilla/readability": "^0.4.4",
@@ -43,10 +43,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/aether.git"
+    "url": "https://github.com/mdckiller/aether.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/aether/issues"
+    "url": "https://github.com/mdckiller/aether/issues"
   },
-  "homepage": "https://github.com/your-username/aether#readme"
+  "homepage": "https://github.com/mdckiller/aether#readme"
 }
