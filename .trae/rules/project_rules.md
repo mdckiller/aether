@@ -1,1 +1,0 @@
-Ignora tutti i  file che stanno della direcoty /bck
