@@ -51,9 +51,31 @@ Aether is an interactive web dashboard that allows you to organize and manage pe
    ```
 
 3. **Database Setup**
-   - Create a PostgreSQL database
-   - Update the database configuration in `config.yaml`
-   - Run the database schema (if available in your setup)
+   
+   Create a PostgreSQL database and set up the schema using the provided dump file:
+   
+   ```bash
+   # Create a new PostgreSQL database
+   createdb aether
+   
+   # Import the database schema from the dump file
+   psql -d aether -f database_schema.sql
+   ```
+   
+   Alternatively, if you need to specify connection parameters:
+   
+   ```bash
+   # With custom host, port, and user
+   psql -h localhost -p 5432 -U your_username -d aether -f database_schema.sql
+   ```
+   
+   The `database_schema.sql` file contains:
+   - Table definitions for users, notes, user_preferences, and user_sessions
+   - Indexes for optimal performance
+   - Foreign key constraints with cascade delete
+   - Triggers for automatic timestamp updates
+   
+   After importing the schema, update the database configuration in `config.yaml` with your connection details.
 
 4. **Configuration**
    - Copy `config.local.yaml.example` to `config.local.yaml`
