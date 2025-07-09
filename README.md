@@ -142,6 +142,23 @@ The modular architecture makes it easy to add new types of widgets:
 - Comment complex logic
 - Maintain modular structure
 
+## Link Processing and Summarization
+
+The application can process web links to extract content in different formats:
+
+- **Formatted**: Extracts the main content of the article, preserving the original formatting, including headings, lists, and optionally images. Images are converted to base64 to be embedded directly into the note.
+- **Plain Text**: Extracts only the raw text of the article, without any formatting.
+- **Summary**: Uses the OpenAI API (if configured) to generate a concise summary of the article. This is ideal for quickly capturing the key information from a long text.
+
+This functionality is handled by the `LinkAPI` class, which uses the `@mozilla/readability` library to extract content and `OpenAI` to generate summaries. To use the summary feature, you must provide a valid API key in the `config.yaml` file.
+
+```yaml
+openai:
+  apiKey: "YOUR_OPENAI_API_KEY"
+  model: "gpt-4"
+  prompt: "Summarize the following text concisely and informatively:"
+```
+
 ## API
 
 The application provides RESTful APIs for:
